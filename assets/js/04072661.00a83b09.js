@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkuptane_demo=self.webpackChunkuptane_demo||[]).push([[4759],{262:e=>{e.exports=JSON.parse('{"permalink":"/uptane-demo/blog/tags/hola","page":1,"postsPerPage":10,"totalPages":1,"totalCount":1,"blogDescription":"Blog","blogTitle":"Blog"}')}}]);

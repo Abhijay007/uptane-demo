@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkuptane_demo=self.webpackChunkuptane_demo||[]).push([[559],{4991:e=>{e.exports=JSON.parse('{"label":"docusaurus","permalink":"/uptane-demo/blog/tags/docusaurus","allTagsPath":"/uptane-demo/blog/tags","count":4}')}}]);

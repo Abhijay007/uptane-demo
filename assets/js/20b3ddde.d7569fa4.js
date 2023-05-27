@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkuptane_demo=self.webpackChunkuptane_demo||[]).push([[8506],{7827:e=>{e.exports=JSON.parse('{"permalink":"/uptane-demo/blog/tags/docusaurus","page":1,"postsPerPage":10,"totalPages":1,"totalCount":4,"blogDescription":"Blog","blogTitle":"Blog"}')}}]);

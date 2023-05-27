@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkuptane_demo=self.webpackChunkuptane_demo||[]).push([[7791],{4930:e=>{e.exports=JSON.parse('{"label":"hola","permalink":"/uptane-demo/blog/tags/hola","allTagsPath":"/uptane-demo/blog/tags","count":1}')}}]);
