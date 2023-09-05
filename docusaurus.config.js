@@ -18,7 +18,7 @@ const config = {
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'Abhijay', // Usually your GitHub org/user name.
+  organizationName: 'Abhijay007', // Usually your GitHub org/user name.
   projectName: 'uptane-demo', // Usually your repo name.
 
   onBrokenLinks: 'ignore',
