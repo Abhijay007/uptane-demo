@@ -13,15 +13,7 @@ export default function SupportedBySection() {
                 alt="Supported By Logo"
                 width="300px"
                 sources={{
-                    light: useBaseUrl('/img/supported_by_light.svg'),
-                    dark: useBaseUrl('/img/supported_by_dark.svg'),
-                }}
-            />
-               <ThemedImage
-                alt="Supported By Logo"
-                width="300px"
-                sources={{
-                    light: useBaseUrl('/img/supported_by_light.svg'),
+                    light: useBaseUrl('/img/JDF_light.png'),
                     dark: useBaseUrl('/img/supported_by_dark.svg'),
                 }}
             />
