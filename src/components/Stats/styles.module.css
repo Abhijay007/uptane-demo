@@ -1,0 +1,71 @@
+.section_padding {
+  padding: 4rem 6rem;
+}
+
+.Content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.HeaderContainer {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  max-width: 500px;
+}
+
+.Tagline {
+  font-size: 22px;
+  font-weight: 400;
+  text-align: justify;
+  padding: 15px;
+}
+
+.Title {
+  width: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--ifm-color-primary);
+  margin-bottom: 2rem;
+}
+
+.Title h1 {
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 55px;
+  color: var(--ifm-color-primary);
+}
+
+.BadgesContainer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.Badge {
+  margin: 2em;
+}
+
+@media (max-width: 768px) {
+  .Title {
+    font-size: var(--ifm-font-size-36);
+  }
+
+  .Tagline {
+    font-size: var(--ifm-font-size-18);
+  }
+}
+
+@media (max-height: 800px) and (max-width: 768px) {
+  .Container {
+    padding: 4em 0 !important;
+  }
+}

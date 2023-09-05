@@ -7,7 +7,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Uptane',
-  tagline: '',
+  tagline: 'Securing Software Updates for Automobiles',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
@@ -18,8 +18,8 @@ const config = {
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
+  organizationName: 'uptane', // Usually your GitHub org/user name.
+  projectName: 'uptane.github.io', // Usually your repo name.
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -32,12 +32,21 @@ const config = {
     locales: ['en'],
   },
 
+  stylesheets: [
+    //Add Font Awesome stylesheets
+    '/fonts/font-awesome/fontawesome.css',
+    '/fonts/font-awesome/solid.css',
+    '/fonts/font-awesome/regular.css',
+    '/fonts/font-awesome/brands.css'
+  ],
+
   presets: [
     [
       'classic',
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
+
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
@@ -46,8 +55,8 @@ const config = {
         },
         blog: {
           showReadingTime: true,
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
+          path: 'blog', // The directory containing your blog posts
+          routeBasePath: 'blog', // The base path for the blog pages
           editUrl:
             'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
         },
@@ -61,38 +70,61 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      announcementBar: {
+        id: 'announcement_bar',
+        content:
+          `Dont Forget to Register for Upcoming Uptane workshop`,
+        backgroundColor: 'var(--theme-card)',
+        textColor: 'black',
+        isCloseable: true,
+      },
       // Replace with your project's social card
+
       image: 'img/docusaurus-social-card.jpg',
+
+      algolia: {
+        apiKey: "#",
+        appId: "#",
+        indexName: "#",
+      },
       navbar: {
-        title: 'Uptane',
         logo: {
           alt: 'Uptane Logo',
-          src: 'img/logo.svg',
+          src: 'img/Uptane_logo.png',
         },
         items: [
+
           {
-            type: 'docSidebar',
-            sidebarId: 'tutorialSidebar',
-            position: 'left',
-            label: 'docs',
+            to: '/docs/AboutUs/governance-merge', label: 'AboutUs', position: 'left',
           },
-          {to: '/blog', label: 'Blog', position: 'left'},
           {
-            href: 'https://github.com/facebook/docusaurus',
-            label: 'GitHub',
+            label: 'Standard',
+            to: '/Standard',
+          },
+          {
+            label: 'Best Practices ',
+            to: '/Deployment Considerations',
+          },
+          { to: '/docs/POUF', label: 'POUF', position: 'left' },
+          { to: '/blog', label: 'Blog', position: 'left' },
+          {
+            to: '#',
+            label: ' ',
             position: 'right',
+            target: '_blank',
+            className: 'fab fa-lg fa-github',
           },
         ],
       },
       footer: {
-        style: 'dark',
+        style: 'light',
         links: [
           {
             title: 'Docs',
             items: [
               {
-                label: 'docs',
-                to: '/docs/intro',
+                label: 'Docs',
+                to: '/docs/',
               },
             ],
           },
@@ -101,15 +133,15 @@ const config = {
             items: [
               {
                 label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+                href: '#',
               },
               {
                 label: 'Discord',
-                href: 'https://discordapp.com/invite/docusaurus',
+                href: '#',
               },
               {
                 label: 'Twitter',
-                href: 'https://twitter.com/docusaurus',
+                href: '#',
               },
             ],
           },
@@ -122,17 +154,18 @@ const config = {
               },
               {
                 label: 'GitHub',
-                href: 'https://github.com/facebook/docusaurus',
+                href: 'https://github.com/uptane',
               },
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Uptane.`,
       },
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
       },
+
     }),
 };
 

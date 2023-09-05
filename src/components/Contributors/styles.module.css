@@ -1,0 +1,26 @@
+.contributors {
+    text-align: center;
+    padding: 5rem;
+}
+
+.pluginsHeader h1 {
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 55px;
+    color: var(--ifm-color-primary);
+    padding: 3rem;
+}
+
+@media only screen and (max-width: 736px) {
+    .pluginsHeader {
+        padding-top: 30px;
+    }
+
+}
+
+@media (max-width: 382px) {
+    .contributors {
+        padding: 4.5rem;
+
+    }
+}
