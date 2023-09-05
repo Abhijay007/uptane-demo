@@ -2,7 +2,6 @@ import React from 'react';
 import clsx from 'clsx';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import styles from './styles.module.css';
-// import GithubButton from '../../components/buttons/GithubButton';
 import FooterLink from './FooterLink';
 
 const Footer = () => {
@@ -26,7 +25,7 @@ const Footer = () => {
                 alt="Uptane Logo"
                 height={35}
                 width={35}
-                src="/img/Uptane_logo.png"
+                src="./img/Uptane_logo.png"
                 title={siteConfig.tagline}
               />
             </div>
