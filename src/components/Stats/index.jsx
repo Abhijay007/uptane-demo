@@ -9,11 +9,9 @@ const StatsView = () => {
   return (
     <div className={[styles.what_is_uptane, styles.section_padding].join(' ')}>
       <div className={styles.Content}>
-        <div className={styles.HeaderContainer}>
-          <h3 className={styles.Tagline}>Always Open Source</h3>
-          <div className={styles.Title}>
-            <h1>Uptane growing community and Here are some stats</h1>
-          </div>
+        <h3 className={styles.Tagline}>Always Open Source</h3>
+        <div className={styles.what_is_uptane_heading}>
+          <h1>Uptane growing community and here are some status</h1>
         </div>
 
         <div className={styles.BadgesContainer}>

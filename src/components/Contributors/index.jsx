@@ -29,7 +29,9 @@ const Contributors = (props) => {
 
   return (
     <div className={styles.contributors} >
-      <div className={styles.pluginsHeader}><h1>Contributors</h1></div>
+      <div className={styles.what_is_uptane_heading}>
+                <h1>Contributors</h1>
+            </div>
       <div>
         {sortedContributors.length > 0 && (
           <LazyLoad height={200}>

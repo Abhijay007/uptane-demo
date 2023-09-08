@@ -79,7 +79,6 @@ const config = {
         textColor: 'black',
         isCloseable: true,
       },
-      // Replace with your project's social card
 
       image: 'img/docusaurus-social-card.jpg',
 
@@ -99,8 +98,23 @@ const config = {
             to: '/docs/AboutUs/governance-merge', label: 'AboutUs', position: 'left',
           },
           {
+            type: 'dropdown',
             label: 'Standard',
-            to: '/Standard',
+            position: 'left',
+            items: [
+              {
+                label: 'Uptane Standard (2.1.0)',
+                to: '/docs/dropdown-item1',
+              },
+              {
+                label: 'Design Archive',
+                to: '/docs/Standard/Archive',
+              },
+              {
+                label: 'StandardRef',
+                to: '/docs/Standard/standardref',
+              },
+            ],
           },
           {
             label: 'Best Practices ',

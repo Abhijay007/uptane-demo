@@ -23,8 +23,7 @@ const Footer = () => {
               <img
                 className={styles.BrandImage}
                 alt="Uptane Logo"
-                height={35}
-                width={35}
+                width={200}
                 src="./img/Uptane_logo.png"
                 title={siteConfig.tagline}
               />
@@ -32,7 +31,6 @@ const Footer = () => {
             <div className={styles.Tagline}>{siteConfig.tagline}</div>
           </div>
 
-          {/* Footer Quick Links (Right) */}
           <div className={styles.FooterRight}>
             {links.map((linkItem, i) => (
               <div className={styles.SectionContainer} key={i}>

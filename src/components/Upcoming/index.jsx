@@ -18,9 +18,9 @@ export default function UptaneUpdates() {
             <input
               type="email"
               placeholder="Enter your email"
-              className={`${styles.emailInput} ${styles.leftCardButton}`}
+              className={styles.emailInput}
             />
-            <button className={`${styles.subscribeButton} ${styles.leftCardButton}`}>
+            <button className={styles.subscribeButton}>
               Subscribe
             </button>
           </div>

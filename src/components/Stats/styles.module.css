@@ -1,23 +1,28 @@
 .section_padding {
-  padding: 4rem 6rem;
+  padding: 4rem 4rem;
 }
 
 .Content {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
-  margin: 0 auto;
 }
 
-.HeaderContainer {
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  justify-content: center;
+.what_is_uptane_heading {
+  width: 100%;
   text-align: center;
+  display: flex;
+  justify-content: center;
   align-items: center;
-  max-width: 500px;
+  margin-bottom: 2rem;
+  max-width: 650px;
+}
+
+.what_is_uptane_heading h1 {
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 55px;
+  color: var(--ifm-color-primary);
 }
 
 .Tagline {
@@ -25,23 +30,6 @@
   font-weight: 400;
   text-align: justify;
   padding: 15px;
-}
-
-.Title {
-  width: 100%;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: var(--ifm-color-primary);
-  margin-bottom: 2rem;
-}
-
-.Title h1 {
-  font-weight: 600;
-  font-size: 40px;
-  line-height: 55px;
-  color: var(--ifm-color-primary);
 }
 
 .BadgesContainer {
@@ -54,18 +42,30 @@
   margin: 2em;
 }
 
-@media (max-width: 768px) {
-  .Title {
-    font-size: var(--ifm-font-size-36);
+@media screen and (max-width: 1050px) {
+  .what_is_uptane {
+    flex-direction: column;
   }
 
-  .Tagline {
-    font-size: var(--ifm-font-size-18);
+  .what_is_uptane_heading {
+    margin-bottom: 1rem;
   }
 }
 
-@media (max-height: 800px) and (max-width: 768px) {
-  .Container {
-    padding: 4em 0 !important;
+@media screen and (max-width: 650px) {
+  .what_is_uptane_heading h1 {
+    font-size: 40px;
+    line-height: 60px;
+  }
+
+  .section_padding {
+    padding: 2rem;
+  }
+}
+
+@media screen and (max-width: 490px) {
+  .what_is_uptane_heading h1 {
+    font-size: 35px;
+    line-height: 48px;
   }
 }

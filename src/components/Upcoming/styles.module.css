@@ -108,7 +108,6 @@
     width: 50%;
     padding: 20px;
     border-radius: 50px;
-    border: none;
     background-color: rgba(255, 255, 255, 0.95);
     margin-right: 10px;
     /* Add margin-right for the gap */
@@ -119,26 +118,9 @@
     height: 46px;
     width: 145px;
     border-radius: 50px;
-    border: none;
-    font-family: 'Outfit', sans-serif;
     font-size: 15px;
+    border: 1px solid var(--gradient-blue);
     background-color: rgba(255, 255, 255, 0.95);
-}
-
-.leftCardButton {
-    color: hsl(31, 77%, 52%);
-}
-
-.leftCardButton:hover {
-    color: rgba(255, 255, 255, 0.95);
-}
-
-.rightCardButton {
-    color: hsl(179, 100%, 13%);
-}
-
-.rightCardButton:hover {
-    color: rgba(255, 255, 255, 0.95);
 }
 
 

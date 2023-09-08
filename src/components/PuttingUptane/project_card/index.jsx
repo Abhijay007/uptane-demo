@@ -25,10 +25,10 @@ export default function ProjectCard(props) {
                             />
                         </div>
 
-                        <div className={styles.title}>{props.title}</div>
-
                     </div>
+
                     <div className={styles.content}>
+                        <h3 className={styles.title}>{props.title}</h3>
                         <p
                             className={styles.description}
                             dangerouslySetInnerHTML={{ __html: props.description }}

@@ -5,16 +5,16 @@
     justify-content: center;
     text-align: center;
     flex-direction: column;
-    height: 170px;
-    width: 280px;
+    height: 180px;
+    width: 300px;
     cursor: pointer;
 }
 
 .IconContainer {
     position: absolute;
     display: flex;
-    top: -1rem;
-    right: -1rem;
+    top: -1.5rem;
+    right: -1.5rem;
     padding: 1rem;
     border-radius: 50%;
     align-items: center;
@@ -34,12 +34,13 @@
 }
 
 .Number {
-    color: var(--ifm-color-on-background-2);
-    font-size: var(--ifm-font-size-48);
-    font-weight: bold;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 60px;
+    color: var(--ifm-color-primary);
 }
 
 .Text {
-    color: var(--ifm-color-on-background-3);
-    font-size: var(--ifm-font-size-18);
+    font-size: 22px;
+    font-weight: 400;
 }

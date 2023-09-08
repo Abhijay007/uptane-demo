@@ -16,7 +16,7 @@ export default function Workflow() {
                 <ThemedImage
                     alt="uptane Workflow Image"
                     sources={{
-                        light: useBaseUrl('/img/uptane_workflow_light.svg'),
+                        light: useBaseUrl('./img/uptane_workflow_light.svg'),
                         dark: useBaseUrl('/img/uptane_workflow_dark.svg'),
                     }}
                 />
