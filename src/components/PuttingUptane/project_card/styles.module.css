@@ -32,14 +32,11 @@
     font-weight: bold;
 }
 
-.imageWrapper {
-    height: 3rem;
-    width: 3rem;
-}
 
-.image {
-    height: 100%;
-    width: 100%;
+.icon {
+    padding: 2px;
+    height: 50px;
+    width: 50px;
     object-fit: contain;
 }
 

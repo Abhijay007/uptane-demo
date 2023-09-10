@@ -8,8 +8,6 @@ import Community from '../components/JoinCommunity';
 import Contributors from '../components/Contributors';
 import Adopters from '../components/Adopters';
 import PuttingUptane from '../components/PuttingUptane';
-// import RecentBlogPosts from '../components/BlogComponent';|
-// import HomeEventsSection from "../components/BlogComponent"; 
 import UpcomingUptane from '../components/Upcoming';
 import Features from '../components/Features';
 import StatsView from '../components/Stats';
@@ -29,7 +27,6 @@ export default function Home() {
         <Adopters/>
         <PuttingUptane/>
         <Workflow />
-        {/* <HomeEventsSection/> */}
         <StatsView />
         <Contributors />
         <Community />

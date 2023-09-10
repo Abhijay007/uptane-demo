@@ -4,20 +4,17 @@ import ProjectCard from './project_card';
 import styles from './styles.module.css';
 
 export default function PuttingUptane() {
-
     const ProjectCards = data.projects.map((item, index) => {
-
         return (
             <ProjectCard
                 key={index}
                 title={item.title}
-                light={item.light}
-                dark={item.dark}
                 description={item.description}
                 link={item.link}
+                iconComponent={item.icon} 
             />
-        )
-    })
+        );
+    });
 
     return (
 

@@ -1,10 +1,10 @@
 import React from "react";
-import ThemedImage from '@theme/ThemedImage';
-import useBaseUrl from '@docusaurus/useBaseUrl';
 import styles from "./styles.module.css";
 import Link from '@docusaurus/Link';
 
 export default function ProjectCard(props) {
+    const IconComponent = props.iconComponent; // Use the passed icon component
+
     return (
         <div className={styles.container}>
             <Link
@@ -15,16 +15,9 @@ export default function ProjectCard(props) {
             >
                 <div className={styles.cardWrapper}>
                     <div className={styles.header}>
-                        <div className={styles.imageWrapper}>
-                            <ThemedImage className={styles.image}
-                                title={props.title}
-                                sources={{
-                                    light: useBaseUrl(`${props.light}`),
-                                    dark: useBaseUrl(`${props.dark}`),
-                                }}
-                            />
+                        <div className={styles.iconWrapper}>
+                            {IconComponent && <IconComponent className={styles.icon} />} {/* Render the icon */}
                         </div>
-
                     </div>
 
                     <div className={styles.content}>
@@ -38,4 +31,4 @@ export default function ProjectCard(props) {
             </Link>
         </div>
     );
-};
+}
