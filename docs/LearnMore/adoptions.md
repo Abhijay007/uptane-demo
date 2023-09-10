@@ -1,6 +1,4 @@
 ---
-layout: default
-css_id: adoptions
 ---
 
 # Adoptions

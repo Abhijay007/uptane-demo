@@ -1,5 +1,6 @@
 ---
 sidebar_position: 2
+title : "Uptane Reference Implementation POUF"
 ---
 
 - POUF: 1

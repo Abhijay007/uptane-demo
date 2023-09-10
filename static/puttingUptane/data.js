@@ -18,14 +18,14 @@ const projects = [
         light: "#",
         dark: "#",
         description: "Open source standard for runtime security for hosts",
-        link: "docs/POUF/",
+        link: "docs/Enhancements/POUF/PoufMain",
     },
     {
         title: "PUREs",
         light: "#",
         dark: "#",
         description: "Short Description about Deployment Best PUREs.",
-        link: "#",
+        link: "docs/Enhancements/PUREs/pure1",
     },
 ];
 

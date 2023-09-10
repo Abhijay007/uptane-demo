@@ -1,5 +1,4 @@
 ---
-layout: default
 css_id: press
 ---
 

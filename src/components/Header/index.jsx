@@ -13,7 +13,6 @@ export default function Header() {
                 <h1>UPTANE</h1>
                 <h3>A Secure Software Update Framework for Automobiles</h3>
                 <div className={styles.header_content_buttons}>
-                    <Link to="/docs/quickstart" className='button button--secondary button--lg'>Get Started</Link>
                     <Link to="/docs/LearnMore/audio" className={customButtonClasses}>Learn More</Link>
                 </div>
             </div>

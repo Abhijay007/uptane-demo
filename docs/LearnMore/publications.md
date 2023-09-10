@@ -1,6 +1,5 @@
 ---
-layout: default
-css_id: publications
+title: Publications
 ---
 
 # Conference and Journal Publications

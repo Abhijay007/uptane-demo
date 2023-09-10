@@ -1,5 +1,6 @@
 ---
 sidebar_position: 1
+title: "POUF Purpose and Guidelines"
 ---
 
 - Title: POUF Purpose and Guidelines

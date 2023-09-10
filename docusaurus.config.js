@@ -95,7 +95,7 @@ const config = {
         items: [
 
           {
-            to: '/docs/AboutUs/governance-merge', label: 'AboutUs', position: 'left',
+            to: '/docs/AboutUs/governance-merge', label: 'About Us', position: 'left',
           },
           {
             type: 'dropdown',
@@ -103,15 +103,11 @@ const config = {
             position: 'left',
             items: [
               {
-                label: 'Uptane Standard (2.1.0)',
-                to: '/docs/dropdown-item1',
+                label: 'Uptane Standard (Latest)',
+                to: '/docs/Standard/latest',
               },
               {
-                label: 'Design Archive',
-                to: '/docs/Standard/Archive',
-              },
-              {
-                label: 'StandardRef',
+                label: 'Uptane Standard (Previous Versions)',
                 to: '/docs/Standard/standardref',
               },
             ],
@@ -120,7 +116,22 @@ const config = {
             label: 'Best Practices ',
             to: '/Deployment Considerations',
           },
-          { to: '/docs/POUF', label: 'POUF', position: 'left' },
+          {
+            type: 'dropdown',
+            label: 'Enhancements',
+            position: 'left',
+            items: [
+              {
+                label: 'POUF',
+                to: 'docs/Enhancements/POUF/PoufMain',
+              },
+              {
+                label: 'PUREs',
+                to: 'docs/Enhancements/PUREs/pure1',
+              },
+            ],
+          },
+          { to: '/docs/LearnMore/audio', label: 'Learn More', position: 'left' },
           { to: '/blog', label: 'Blog', position: 'left' },
           {
             to: '#',
