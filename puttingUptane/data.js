@@ -1,29 +1,31 @@
+
+import { FaStar, FaHeart } from 'react-icons/fa';
+import {AiOutlineDeploymentUnit} from "react-icons/ai"; 
+import {GoVersions} from 'react-icons/go';
+import {GrDocumentUpdate} from "react-icons/gr";
+
 const projects = [
     {
         title: "UPTANE STANDARD",
-        light: "#",
-        dark: "#",
+        icon: GoVersions,
         description: "Short Description about Uptane Standard",
         link: "#",
     },
     {
         title: "DEPLOYMENT BEST PRACTICES",
-        light: "#",
-        dark: "#",
+        icon: AiOutlineDeploymentUnit,
         description: "Short Description about Deployment Best Practices.",
         link: "#",
     },
     {
         title: "POUFs",
-        light: "#",
-        dark: "#",
+        icon: FaStar,
         description: "Open source standard for runtime security for hosts",
         link: "docs/Enhancements/POUF/PoufMain",
     },
     {
         title: "PUREs",
-        light: "#",
-        dark: "#",
+        icon: GrDocumentUpdate,
         description: "Short Description about Deployment Best PUREs.",
         link: "docs/Enhancements/PUREs/pure1",
     },
