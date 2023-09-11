@@ -13,7 +13,7 @@ const projects = [
         link: "docs/LearnMore/design",
     },
     {
-        title: "Threats",
+        title: "Threat Model",
         icon: GrDocumentThreat,
         description: "An overview of the range of threats Uptane can prevent or deflect.",
         link: "docs/LearnMore/Threats/threat",

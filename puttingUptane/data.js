@@ -1,5 +1,5 @@
 
-import { FaStar, FaHeart } from 'react-icons/fa';
+import { FaStar} from 'react-icons/fa';
 import {AiOutlineDeploymentUnit} from "react-icons/ai"; 
 import {GoVersions} from 'react-icons/go';
 import {GrDocumentUpdate} from "react-icons/gr";
@@ -9,7 +9,7 @@ const projects = [
         title: "UPTANE STANDARD",
         icon: GoVersions,
         description: "Short Description about Uptane Standard",
-        link: "#",
+        link: "docs/Standard/latest",
     },
     {
         title: "DEPLOYMENT BEST PRACTICES",
