@@ -1,6 +1,6 @@
 ---
-sidebar_position: 3
-title: Contirbuting
+sidebar_position: 4
+title: Contributing
 ---
 
 # Participate

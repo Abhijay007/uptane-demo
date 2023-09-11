@@ -95,7 +95,7 @@ const config = {
         items: [
 
           {
-            to: '/docs/AboutUs/governance-merge', label: 'About Us', position: 'left',
+            to: '/docs/LearnMore/About', label: 'About Us', position: 'left',
           },
           {
             type: 'dropdown',
@@ -131,7 +131,7 @@ const config = {
               },
             ],
           },
-          { to: '/docs/LearnMore/audio', label: 'Learn More', position: 'left' },
+          { to: '/docs/LearnMore/gettingStarted', label: 'Learn More', position: 'left' },
           { to: '/blog', label: 'Blog', position: 'left' },
           {
             to: '#',

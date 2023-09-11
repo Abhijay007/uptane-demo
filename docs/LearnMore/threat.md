@@ -1,6 +1,5 @@
 ---
-sidebar_position: 1
-title : Threat
+title : Threat Model
 ---
 
 # Why Uptane is needed
