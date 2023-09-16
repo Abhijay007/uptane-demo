@@ -8,7 +8,6 @@ export default function ProjectCard(props) {
     return (
         <div className={styles.container}>
             <Link
-                target="_blank"
                 href={props.link}
                 className={styles.card}
                 rel="noreferrer"
@@ -19,7 +18,6 @@ export default function ProjectCard(props) {
                             {IconComponent && <IconComponent className={styles.icon} />} {/* Render the icon */}
                         </div>
                     </div>
-
                     <div className={styles.content}>
                         <h3 className={styles.title}>{props.title}</h3>
                         <p

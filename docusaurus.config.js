@@ -47,12 +47,29 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
             'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+          lastVersion: "current",
+          versions: {
+            current: {
+              label: 'Latest (2.1.0)',
+            },
+            "2.0.0": {
+              label: "2.0.0",
+            },
+            "1.2.0": {
+              label: "1.2.0",
+            },
+            "1.1.0": {
+              label: "1.1.0",
+            },
+            "1.0.0": {
+              label: "1.0.0",
+            },
+          },
         },
         blog: {
           showReadingTime: true,
@@ -79,9 +96,10 @@ const config = {
         textColor: 'black',
         isCloseable: true,
       },
-
-      image: 'img/docusaurus-social-card.jpg',
-
+      tableOfContents: {
+        minHeadingLevel: 2,
+        maxHeadingLevel: 5,
+      },
       algolia: {
         apiKey: "#",
         appId: "#",
@@ -98,23 +116,12 @@ const config = {
             to: '/docs/LearnMore/About', label: 'About Us', position: 'left',
           },
           {
-            type: 'dropdown',
-            label: 'Standard',
-            position: 'left',
-            items: [
-              {
-                label: 'Uptane Standard (Latest)',
-                to: '/docs/Standard/latest',
-              },
-              {
-                label: 'Uptane Standard (Previous Versions)',
-                to: '/docs/Standard/standardref',
-              },
-            ],
+            to: '/docs/Standard/UptaneStandard', label: 'Standard', position: 'left',
           },
           {
-            label: 'Best Practices ',
-            to: '/Deployment Considerations',
+            label: 'Best Practices',
+            to: '/docs/Deployment/BestPractices',
+            position: 'left'
           },
           {
             type: 'dropdown',
@@ -140,50 +147,61 @@ const config = {
             target: '_blank',
             className: 'fab fa-lg fa-github',
           },
+          {
+            type: "docsVersionDropdown",
+            position: "right",
+            dropdownActiveClassDisabled: true,
+            dropdownItemsAfter: [
+              {
+                to: "/docs/allVersions",
+                label: "All versions",
+              },
+            ],
+          },
         ],
       },
       footer: {
         style: 'light',
         links: [
-          {
-            title: 'Docs',
-            items: [
-              {
-                label: 'Docs',
-                to: '/docs/',
-              },
-            ],
-          },
-          {
-            title: 'Community',
-            items: [
-              {
-                label: 'Stack Overflow',
-                href: '#',
-              },
-              {
-                label: 'Discord',
-                href: '#',
-              },
-              {
-                label: 'Twitter',
-                href: '#',
-              },
-            ],
-          },
-          {
-            title: 'More',
-            items: [
-              {
-                label: 'Blog',
-                to: '/blog',
-              },
-              {
-                label: 'GitHub',
-                href: 'https://github.com/uptane',
-              },
-            ],
-          },
+          // {
+          //   title: 'Docs',
+          //   items: [
+          //     {
+          //       label: 'Docs',
+          //       to: '/docs/',
+          //     },
+          //   ],
+          // },
+          // {
+          //   title: 'Community',
+          //   items: [
+          //     {
+          //       label: 'Stack Overflow',
+          //       href: '#',
+          //     },
+          //     {
+          //       label: 'Discord',
+          //       href: '#',
+          //     },
+          //     {
+          //       label: 'Twitter',
+          //       href: '#',
+          //     },
+          //   ],
+          // },
+          // {
+          //   title: 'More',
+          //   items: [
+          //     {
+          //       label: 'Blog',
+          //       to: '/blog',
+          //     },
+          //     {
+          //       label: 'GitHub',
+          //       href: 'https://github.com/uptane',
+          //     },
+          //   ],
+          // },
         ],
         copyright: `Copyright © ${new Date().getFullYear()} Uptane.`,
       },

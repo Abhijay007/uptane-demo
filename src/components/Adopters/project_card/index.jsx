@@ -8,7 +8,6 @@ export default function ProjectCard(props) {
     return (
         <div className={styles.container}>
             <Link
-                target="_blank"
                 href={props.link}
                 className={styles.card}
                 rel="noreferrer"

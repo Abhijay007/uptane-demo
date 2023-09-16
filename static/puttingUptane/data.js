@@ -6,16 +6,16 @@ import {GrDocumentUpdate} from "react-icons/gr";
 
 const projects = [
     {
-        title: "UPTANE STANDARD",
+        title: "Uptane Standard",
         icon: GoVersions,
         description: "Short Description about Uptane Standard",
-        link: "docs/Standard/latest",
+        link: "docs/Standard/uptaneStandard",
     },
     {
-        title: "DEPLOYMENT BEST PRACTICES",
+        title: "Deployment Bestt Practices",
         icon: AiOutlineDeploymentUnit,
         description: "Short Description about Deployment Best Practices.",
-        link: "#",
+        link: "docs/Deployment/bestPractices",
     },
     {
         title: "POUFs",

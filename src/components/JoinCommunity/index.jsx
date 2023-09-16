@@ -7,14 +7,14 @@ export default function Community() {
     return (
         <div className={[styles.community, styles.section_padding].join(' ')}>
             <div className={styles.join_community}>
-                <h1>Join the uptane Community</h1>
+                <h1>Join the Uptane Community</h1>
                 <p>Join the ever-growing uptane community for updates, support, and collaboration.</p>
             </div>
             <div className={styles.community_links}>
                 <div className={styles.links}>
-                    <LinkCard link="#" title="Slack" light="img/community_links/slack.svg" dark="img/community_links/slack.svg" />
+                    {/* <LinkCard link="#" title="Slack" light="img/community_links/slack.svg" dark="img/community_links/slack.svg" /> */}
                     <LinkCard link="https://github.com/uptane-project" title="GitHub" light="img/community_links/github_light.svg" dark="img/community_links/github_dark.svg" />
-                    <LinkCard link="https://twitter.com/uptaneproject" title="Twitter" light="img/community_links/twitter.svg" dark="img/community_links/twitter.svg" />
+                    {/* <LinkCard link="https://twitter.com/uptaneproject" title="Twitter" light="img/community_links/twitter.svg" dark="img/community_links/twitter.svg" /> */}
                 </div>
                 <div className={styles.add_to_calendar}>
                     <div className={styles.calendar_heading}>

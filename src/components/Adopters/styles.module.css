@@ -26,21 +26,18 @@
 }
 
 @media screen and (max-width: 1050px) {
-    .projectcards,
-    .registrycards {
+    .projectcards {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media screen and (max-width: 650px) {
-    .projects_uptane h1,
-    .regsitries_uptane h1 {
+    .projects_uptane h1 {
         font-size: 40px;
         line-height: 60px;
     }
 
-    .projectcards,
-    .registrycards {
+    .projectcards {
         grid-template-columns: repeat(1, 1fr);
         padding: 1rem;
     }
@@ -51,8 +48,7 @@
 }
 
 @media screen and (max-width: 490px) {
-    .projects_uptane h1,
-    .regsitries_uptane h1 {
+    .projects_uptane h1 {
         font-size: 35px;
         line-height: 48px;
     }

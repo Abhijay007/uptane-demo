@@ -11,7 +11,7 @@ export default function PuttingUptane() {
                 title={item.title}
                 description={item.description}
                 link={item.link}
-                iconComponent={item.icon} 
+                iconComponent={item.icon}
             />
         );
     });

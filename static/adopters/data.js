@@ -16,13 +16,13 @@ const projects = [
         title: "Threat Model",
         icon: GrDocumentThreat,
         description: "An overview of the range of threats Uptane can prevent or deflect.",
-        link: "docs/LearnMore/Threats/threat",
+        link: "docs/LearnMore/threat",
     },
     {
         title: "History",
         icon: BsClockHistory,
         description: "Important milestones in the development of the Uptane project.",
-        link: "docs/LearnMore/History/alliance-history",
+        link: "docs/LearnMore/history",
     },
     {
         title: "Publications",
