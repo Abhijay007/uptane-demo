@@ -1,17 +1,16 @@
 ---
 sidebar_position: 1
 toc_min_heading_level: 2
-title : Uptane Standard 2.1.0
+title: Uptane Standard 2.1.0
 ---
 
-# Uptane Standard for Design and Implementation 2.1.0  
+# Uptane Standard for Design and Implementation 2.1.0
 
 uptane-standard-design
 
 ## Abstract
 
 This document describes a framework for securing ground vehicle software update systems.
-
 
 ## 1.[Introduction](#introduction)
 

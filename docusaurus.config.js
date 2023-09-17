@@ -51,7 +51,7 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+            '#',
           lastVersion: "current",
           versions: {
             current: {
@@ -76,7 +76,7 @@ const config = {
           path: 'blog', // The directory containing your blog posts
           routeBasePath: 'blog', // The base path for the blog pages
           editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+            '#',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -84,6 +84,7 @@ const config = {
       }),
     ],
   ],
+
 
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
@@ -141,7 +142,7 @@ const config = {
           { to: '/docs/LearnMore/gettingStarted', label: 'Learn More', position: 'left' },
           { to: '/blog', label: 'Blog', position: 'left' },
           {
-            to: '#',
+            to: 'https://github.com/uptane/uptane.github.io',
             label: ' ',
             position: 'right',
             target: '_blank',
