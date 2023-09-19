@@ -6,7 +6,7 @@ title: History
 # History
 
 **2010**: A predecessor technology of Uptane, The Update Framework (TUF), which
-secures software updates on repositories, is introduced in an [academic research paper](papers/samuel_ccs_2010.pdf),
+secures software updates on repositories, is introduced in an [academic research paper](../../static/papers/samuel_ccs_2010.pdf),
 coauthored by Justin Samuel and Justin Cappos.
 
 **2013**: Cappos, along with Trishank Kuppusamy, and Vladimir Diaz begin
@@ -25,12 +25,12 @@ UMTRI, SWRI, and NYU Tandon begin developing Uptane, using the basic
 TUF design as a starting point.
 
 **2016** The research team also begins holding a series of workshops (organized by
-Andre Weimerskirch at UMTRI) at which auto companies), suppliers, and representatives of government agencies
+Andre Weimerskirch at UMTRI) at which auto companies, suppliers, and representatives of government agencies
 meet to review and comment on the work in progress. The team also establishes an online forum,
 where issues could be raised and discussed. Both of these steps help to ensure
 alignment with the intended market.
 
-**2016**: [_Uptane: Securing Software Updates for Automobiles_](papers/kuppusamy_escar_16.pdf)
+**2016**: [_Uptane: Securing Software Updates for Automobiles_](../../static/papers/kuppusamy_escar_16.pdf)
 is presented at [escar 16](https://www.escar.info/escar-europe/history.html) by
 lead author Kuppusamy. This
 marked the first presentation of the project to an academic audience.
