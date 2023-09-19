@@ -3,6 +3,7 @@ import clsx from 'clsx';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import styles from './styles.module.css';
 import FooterLink from './FooterLink';
+import footerImage from "../../../static/img/uptane_logo.png"
 
 const Footer = () => {
   const { siteConfig } = useDocusaurusContext();
@@ -24,7 +25,7 @@ const Footer = () => {
                 className={styles.BrandImage}
                 alt="Uptane Logo"
                 width={200}
-                src="./img/Uptane_logo.png"
+                src={footerImage}
                 title={siteConfig.tagline}
               />
             </div>
