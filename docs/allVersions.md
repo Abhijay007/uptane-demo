@@ -23,10 +23,6 @@ This page contains links to all official versions of the Uptane Standard and rel
 - Latest release: Uptane Deployment Best Practices V.2.0.0 [(HTML)](../static/papers/V2.0.0_uptane_deploy.html) [(PDF)](../static/papers/V2.0.0_uptane_deploy.pdf)
 - The relevant pages under the Deployment Best Practices tab will be updated as changes occur, rather than waiting for the next versioned release.
 
-#### **Uptane Test Plan**
-
-[Uptane test plan: Latest draft version](papers/Penetration_Test_Report.pdf)
-_In Development_
 
 #### **Uptane POUF (Protocols, Operations, Usage, and Formats)**
 

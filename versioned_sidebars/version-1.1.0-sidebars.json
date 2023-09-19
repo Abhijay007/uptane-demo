@@ -19,7 +19,7 @@
     {
       "type": "link",
       "label": "Download",
-      "href": "https://facebook.co"
+      "href": "pathname:///papers/uptane-standard.1.1.0.pdf"
     }
   ],
   "DeploymentConsiderationSidebar": [
@@ -30,7 +30,7 @@
     {
       "type": "link",
       "label": "Download",
-      "href": "//facebook.com"
+      "href": "pathname:///papers/uptane-deployment-best-practices-1.1.0.pdf"
     }
   ]
 }

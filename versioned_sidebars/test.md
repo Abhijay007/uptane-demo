@@ -1,0 +1,2 @@
+- [Software Bill of Materials Overview]() 
+- [Software Bill of Materials Overview](../static/papers/uptane-deployment-best-practices-1.1.0.pdf) 
