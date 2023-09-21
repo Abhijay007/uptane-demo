@@ -9,25 +9,25 @@ const projects = [
         title: "Uptane Standard",
         icon: GoVersions,
         description: "Short Description about Uptane Standard",
-        link: "docs/Standard/uptaneStandard",
+        link: "docs/standard/uptane-standard",
     },
     {
         title: "Deployment Bestt Practices",
         icon: AiOutlineDeploymentUnit,
         description: "Short Description about Deployment Best Practices.",
-        link: "docs/Deployment/bestPractices",
+        link: "docs/deployment/best-practices",
     },
     {
         title: "POUFs",
         icon: FaStar,
         description: "Open source standard for runtime security for hosts",
-        link: "docs/Enhancements/POUF/PoufMain",
+        link: "docs/enhancements/pouf/pouf-main",
     },
     {
         title: "PUREs",
         icon: GrDocumentUpdate,
         description: "Short Description about Deployment Best PUREs.",
-        link: "docs/Enhancements/PUREs/pure1",
+        link: "docs/enhancements/pures/pure1",
     },
 ];
 
