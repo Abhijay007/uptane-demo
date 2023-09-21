@@ -1,6 +1,6 @@
 ---
 sidebar_position: 2
-title : "Uptane Reference Implementation POUF"
+title: "Uptane Reference Implementation POUF"
 ---
 
 - POUF: 1
@@ -12,7 +12,7 @@ title : "Uptane Reference Implementation POUF"
 - Uptane Version Implemented: 1.0.0
 - Created: 14-03-2019
 
-# Abstract
+## Abstract
 
 This document describes the Protocols, Operations, Usage, and Formats (POUF) for the Uptane reference implementation written in Python by NYU. POUFs are designed to allow interoperable Uptane implementations. Any implementer who wishes to interoperate with the reference implementation should implement the features and data structures described in this document.
 
@@ -20,7 +20,7 @@ This document describes the Protocols, Operations, Usage, and Formats (POUF) for
 
 The reference implementation includes all required and most optional features as a reference for others looking to implement Uptane.
 
-# Protocols
+## Protocols
 
 This POUF uses ASN.1/DER encoding for transmitting files. The details of the file formats are described in {Formats} in ASN.1 notation. Note that improper decoding of ASN.1 may lead to arbitrary code execution or Denial-of-Service attacks. Any implementers of this POUF should be aware of these attacks and use a decoder which has been subject to appropriate security analysis.
 
@@ -32,26 +32,26 @@ All XML-RPC traffic supported in this POUF is transmitted over TCP/IP and does n
 
 The following message handlers must be implemented. These message handlers are used during the update process described in the Uptane Standard. The format of messages in the Data and Response columns are described in {Formats}. The messages are sent using XML-RPC with the function names in the Request column and data from the Data column.
 
-Request                      | Sender        | Receiver            | Data                                                                                | Response    | Specification Reference
----------------------------- | ------------- | ------------------- | ----------------------------------------------------------------------------------- | ----------- | -------------------------------------------------------------------------------------
-submit_vehicle_manifest      | Primary ECU   | Director Repository | VehicleVersionManifest                                                              |             | <https://uptane.github.io/uptane-standard/uptane-standard.html#director_repository>
-register_ecu_serial          | Primary ECU   | Director Repository | ecu_serial Identifier, ecu_public_key PublicKey, vin Identifier, is_primary BOOLEAN
-get_signed_time              | Primary ECU   | Timeserver          | SequenceOfTokens                                                                    | CurrentTime
-submit_ecu_manifest          | Secondary ECU | Primary ECU         | vin Identifier, ecu_serial Identifier, nonce, ECUVersionManifestSigned              |             | <https://uptane.github.io/uptane-standard/uptane-standard.html#create_version_report>
-register_new_secondary       | Secondary ECU | Primary ECU         | ecu_serial Identifier                                                               |             |
-get_time_attestation_for_ecu | Secondary ECU | Primary ECU         | ecu_serial Identifier                                                               |             | <https://uptane.github.io/uptane-standard/uptane-standard.html#send_time_primary>
-get_image                    | Secondary ECU | Primary ECU         | ecu_serial Identifier                                                               |             | <https://uptane.github.io/uptane-standard/uptane-standard.html#send_images_primary>
-get_metadata                 | Secondary ECU | Primary ECU         | ecu_serial Identifier, is_partial_verification BOOLEAN                              |             | <https://uptane.github.io/uptane-standard/uptane-standard.html#send_metadata_primary>
+| Request                      | Sender        | Receiver            | Data                                                                                | Response    | Specification Reference                                                               |
+| ---------------------------- | ------------- | ------------------- | ----------------------------------------------------------------------------------- | ----------- | ------------------------------------------------------------------------------------- |
+| submit_vehicle_manifest      | Primary ECU   | Director Repository | VehicleVersionManifest                                                              |             | <https://uptane.github.io/uptane-standard/uptane-standard.html#director_repository>   |
+| register_ecu_serial          | Primary ECU   | Director Repository | ecu_serial Identifier, ecu_public_key PublicKey, vin Identifier, is_primary BOOLEAN |
+| get_signed_time              | Primary ECU   | Timeserver          | SequenceOfTokens                                                                    | CurrentTime |
+| submit_ecu_manifest          | Secondary ECU | Primary ECU         | vin Identifier, ecu_serial Identifier, nonce, ECUVersionManifestSigned              |             | <https://uptane.github.io/uptane-standard/uptane-standard.html#create_version_report> |
+| register_new_secondary       | Secondary ECU | Primary ECU         | ecu_serial Identifier                                                               |             |
+| get_time_attestation_for_ecu | Secondary ECU | Primary ECU         | ecu_serial Identifier                                                               |             | <https://uptane.github.io/uptane-standard/uptane-standard.html#send_time_primary>     |
+| get_image                    | Secondary ECU | Primary ECU         | ecu_serial Identifier                                                               |             | <https://uptane.github.io/uptane-standard/uptane-standard.html#send_images_primary>   |
+| get_metadata                 | Secondary ECU | Primary ECU         | ecu_serial Identifier, is_partial_verification BOOLEAN                              |             | <https://uptane.github.io/uptane-standard/uptane-standard.html#send_metadata_primary> |
 
-In addition to the above message handlers, the Director repository hosts the RootMetadata, TargetsMetadata, SnapshotMetadata, and TimestampMetadata using XML-RPC. The filenames for these files will be 
+In addition to the above message handlers, the Director repository hosts the RootMetadata, TargetsMetadata, SnapshotMetadata, and TimestampMetadata using XML-RPC. The filenames for these files will be
 
 <role>.der where role is the associated role (Root, Targets, Snapshot, or Timestamp) in lowercase. The url of the hosted directory will be loaded onto ECUs at the time of manufacture.</role>
 
-The Image repository hosts the RootMetadata, TargetsMetadata, SnapshotMetadata, TimestampMetadata, and images. The filenames for the metadata files are 
+The Image repository hosts the RootMetadata, TargetsMetadata, SnapshotMetadata, TimestampMetadata, and images. The filenames for the metadata files are
 
 <role>.der where role is the associated role (Root, Targets, Snapshot, or Timestamp) in lowercase. The filenames for the images are specified in the custom field of Targets metadata on the Image repository as described in the <a href="https://uptane.github.io/uptane-standard/uptane-standard.html#targets_images_meta">Uptane Standard</a>. The url of the hosted directory will be loaded onto Primary ECUs and full verification Secondary ECUs at the time of manufacture.</role>
 
-# Operations
+## Operations
 
 Of course, as the system implements Uptane, the reference implementation follows the requirements of the Uptane Standard. In addition to the required features, the reference implementation follows most of the SHOULDs of the standard in order to demonstrate how Uptane is expected to operate. The implementation details and rationale behind any SHOULDs and MAYs that are implemented are described in this section.
 
@@ -71,7 +71,7 @@ The Director repository identifies a vehicle using the vehicle version manifest 
 
 This POUF does not support sending vehicle version manifests as [diffs](https://uptane.github.io/uptane-standard/uptane-standard.html#construct_manifest_primary) to simplify the Director implementation. Sending the full manifest requires some additional bandwidth, but allows the Director to more efficiently parse the manifest.
 
-# Metadata
+## Metadata
 
 This POUF supports some metadata features that are optional in the Uptane Standard, but are required for an implementation of this POUF. These features are included in the metadata definitions in {Formats}. The details of these features are:
 
@@ -83,7 +83,7 @@ This POUF supports some metadata features that are optional in the Uptane Standa
 - The custom field of Targets metadata on the Director and Image repositories are not compared. This means that the must match functionality described in the [Standard](https://uptane.github.io/uptane-standard/uptane-standard.html#custom-metadata-about-images) is not supported. This is not included for backwards compatibility reasons. A client may choose to compare some fields of Targets metadata, but these checks are not required by this POUF. If all other fields match, the custom metadata from the Director is used.
 - Snapshot metadata in this POUF does not include the Root filename or version. These fields are included in implementations that do not use [TAP 5](https://github.com/theupdateframework/taps/blob/01726d203c9b9c029d26f6612069ce3180500d9a/tap5.md#downloading-metadata-and-target-files). Because this POUF implements TAP 5, the Root filename and version do not need to be included in Snapshot metadata.
 
-# Usage
+## Usage
 
 Key management and image generation are not handled by this POUF. The POUF uses online keys for all roles to demonstrate Uptane functionality. This practice is not recommended for Uptane implementers.
 
@@ -101,16 +101,16 @@ The Uptane Reference Implementation does the following setup before any updates 
 
 Each device involved in the update process is expected to have access to certain data. The required devices are expected to have at least the following data:
 
-Location                           | Data
----------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Primary ECU                        | ECU private key _Timeserver public key_ Currently installed version _Secondary's Vehicle Version Manifests_ The most recent Root, Timestamp, Targets, and Snapshot metadata (for a new installation, just the known Root metadata) from both the Image and Director repositories _Image repository public key for each metadata role and the associated threshold. These values are available in the current metadata files._ Director repository public key for each metadata role and the associated thresholds. These values are available in the current metadata files.
-Full verification Secondary ECU    | ECU private key _Timeserver public key_ Currently installed version * The most recent Root, Timestamp, Targets, and Snapshot metadata (for a new installation, just the known Root metadata) from both the Image and Director repositories
-Partial verification Secondary ECU | ECU private key _Timeserver public key_ Currently installed version * Director's Targets metadata public key
-Director Repository                | ECU public keys _Metadata about images_ Inventory database _Online metadata private Director metadata keys_ Metadata signed by offline Director metadata keys
-Image Repository                   | ECU public keys _Metadata about images_ Images _Online metadata private image metadata keys_ Metadata signed by offline image metadata keys
-Timeserver                         | Timeserver private key * Current time
+| Location                           | Data                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Primary ECU                        | ECU private key _Timeserver public key_ Currently installed version _Secondary's Vehicle Version Manifests_ The most recent Root, Timestamp, Targets, and Snapshot metadata (for a new installation, just the known Root metadata) from both the Image and Director repositories _Image repository public key for each metadata role and the associated threshold. These values are available in the current metadata files._ Director repository public key for each metadata role and the associated thresholds. These values are available in the current metadata files. |
+| Full verification Secondary ECU    | ECU private key _Timeserver public key_ Currently installed version \* The most recent Root, Timestamp, Targets, and Snapshot metadata (for a new installation, just the known Root metadata) from both the Image and Director repositories                                                                                                                                                                                                                                                                                                                                  |
+| Partial verification Secondary ECU | ECU private key _Timeserver public key_ Currently installed version \* Director's Targets metadata public key                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| Director Repository                | ECU public keys _Metadata about images_ Inventory database _Online metadata private Director metadata keys_ Metadata signed by offline Director metadata keys                                                                                                                                                                                                                                                                                                                                                                                                                |
+| Image Repository                   | ECU public keys _Metadata about images_ Images _Online metadata private image metadata keys_ Metadata signed by offline image metadata keys                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| Timeserver                         | Timeserver private key \* Current time                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 
-# Formats
+## Formats
 
 ## File formats
 

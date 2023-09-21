@@ -11,7 +11,7 @@ title: "PURE Purpose and Guidelines"
 - Content-Type: text/markdown
 - Created: 09-July-2021
 
-# What is a PURE?
+## What is a PURE?
 
 PURE stands for Proposed Uptane Revision and Enhancement and offers a formal method for members of the community to propose the addition or modification of the Uptane specification. Both the method and the document format is largely modeled on the TUF Augmentation Proposal (TAP) used by The Update Framework (TUF). A PURE is a design document that describes a new feature for Uptane or for its processes or environment. Every PURE should provide both a concise technical specification of the feature and a rationale for the feature's inclusion.
 
@@ -19,7 +19,7 @@ We intend PUREs to be the primary mechanisms for proposing major new features, f
 
 Because the PUREs are maintained as text files in a versioned repository, their revision history is the historical record of the feature proposal.
 
-# PURE Status
+## PURE Status
 
 The status of a PURE indicates its progress through the development process. The different status classifications are defined below.
 
@@ -31,7 +31,7 @@ The status of a PURE indicates its progress through the development process. The
 - **Final** PUREs are complete and will no longer change. This means the proposed changes have been merged into the Uptane Standard.
 - A **Superseded** PURE is one which has been rendered obsolete by a newer PURE.
 
-# PURE Workflow
+## PURE Workflow
 
 ## Consensus Builder
 
@@ -73,7 +73,7 @@ PUREs can also be "Superseded" by a different PURE, rendering the original obsol
 
 In general, PUREs are no longer modified after they have reached the "Final" state. Once a PURE has been completed, the Uptane Standard becomes the formal documentation of the expected behavior.
 
-# What belongs in a successful PURE?
+## What belongs in a successful PURE?
 
 Each PURE SHOULD have the following parts:
 
@@ -91,13 +91,13 @@ Each PURE SHOULD have the following parts:
 
 7. _Copyright_ -- Each PURE must either be explicitly labeled as placed in the public domain (see this PURE as an example) or licensed under the [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/).
 
-# PURE Formats and Templates
+## PURE Formats and Templates
 
 PUREs are UTF-8 encoded text files using the [Markdown](https://daringfireball.net/projects/markdown/) format. Markdown allows for rich markup that is still quite easy to read, but also results in good-looking and functional HTML.
 
 In-line with the Standard, the keywords "MUST," "MUST NOT," "REQUIRED," "SHALL," "SHALL NOT," "SHOULD," "SHOULD NOT," "RECOMMENDED," "MAY," and "OPTIONAL" in a PURE are to be interpreted as described in [RFC 2119](https://tools.ietf.org/html/rfc2119).
 
-# PURE Header Preamble
+## PURE Header Preamble
 
 Each PURE MUST begin with an RFC 822 style header preamble. The headers MUST appear in the following order. Headers marked with "+" are OPTIONAL and are described below. All other headers are required.
 
@@ -126,25 +126,25 @@ PUREs MAY have a Requires header, indicating the PURE numbers on which this PURE
 
 PUREs MAY also have a Superseded-By header indicating that it has been rendered obsolete by a later document; the value is the number of the PURE that replaces the current document. The newer PURE must have a Replaces header containing the number of the PURE that it rendered obsolete.
 
-# Auxiliary Files
+## Auxiliary Files
 
 PUREs MAY include auxiliary files such as diagrams or reference implementations. These files MUST be named `pure-XXXX-Y.ext`, where "XXXX" is the PURE number, "Y" is a serial number (starting at 1), and "ext" is replaced by the actual file extension (e.g. "png").
 
-# Reporting PURE Bugs, or Submitting PURE Updates
+## Reporting PURE Bugs, or Submitting PURE Updates
 
 The procedure for reporting a bug, or submitting a PURE update depends on several factors, such as the maturity of the PURE, the preferences of the PURE author, and the nature of the comments. For Draft or Accepted PUREs, feedback should be via the PUREs [issue tracker](https://github.com/uptane/pures/issues) or as a pull request against the PURE in question.
 Once a PURE has been marked Final, bugs or corrections SHOULD be submitted to the Uptane [issue tracker](https://github.com/uptane/uptane-standard/issues) so that changes do not get lost.
 
-# Transferring PURE Ownership
+## Transferring PURE Ownership
 
 It occasionally becomes necessary to transfer ownership of PUREs to a new champion. In general, it is preferable to retain the original author as a co-author of the transferred PURE, but that is really up to the individual. A good reason to transfer ownership is because the original author no longer has the time or interest in updating it or following through with the PURE process, or is unreachable (or not responding to email). A bad reason to transfer ownership is because the author doesn't agree with the direction of the PURE. One aim of the PURE process is to try to build consensus around a PURE, but if that's not possible, an author can always submit a competing PURE.
 
 If you are interested in assuming ownership of a PURE, send a message stating that request to both the original author and the [Uptane mailing list](https://groups.google.com/g/uptane-standards). If the original author does not respond to the email in a timely manner, the Uptane team will make a unilateral decision, though such decisions may be reversible.
 
-# Copyright
+## Copyright
 
 This document has been placed in the public domain.
 
-# Acknowledgements
+## Acknowledgements
 
 This PURE was heavily borrowed from [TAP 1](https://github.com/theupdateframework/taps/blob/master/tap1.md).

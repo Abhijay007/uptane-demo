@@ -3,11 +3,11 @@ sidebar_position: 1
 title: Best Practices 1.1.0
 ---
 
-# Uptane Deployment Best Practices V.1.1.0
+## Uptane Deployment Best Practices V.1.1.0
 
 ## Companion Document to Uptane Standard for Design and Implementation V.1.1.0
 
-# Introduction
+## Introduction
 
 Uptane is a standard, and does not have an official distribution or implementation. We do provide a [reference implementation in Python](https://github.com/uptane/uptane), and there are a number of open source projects such as [aktualizr](https://github.com/advancedtelematic/aktualizr), [rust-tuf](https://github.com/heartsucker/rust-tuf), [Notary](https://github.com/theupdateframework/notary), and [OTA Community Edition](https://github.com/advancedtelematic/ota-community-edition/) implementing all or part of the Standard. In addition, commercial Uptane offerings are available in the marketplace from [HERE Technologies](https://www.here.com/products/automotive/ota-technology) and [Airbiquity](https://www.airbiquity.com/product-offerings/software-and-data-management).
 
@@ -19,7 +19,7 @@ In addition, these guidelines may be used in the creation of [POUFs](https://git
 
 Uptane is a Joint Development Foundation project of the Linux Foundation, operating under the formal title of Joint Development Foundation Projects, LLC, Uptane Series.
 
-# Changelog
+## Changelog
 
 All notable changes to this project will be documented in this file.
 
@@ -66,7 +66,7 @@ The changes made to the Uptane Standard since its initial release on July 31, 20
 - Removed words from the opening definition section that are not used in the Standard.
 - Removed references to TAP 5 in three places in the Standard. TAP 5 has been more or less replaced by TAP 13, but the latter has not yet been approved.
 
-# A. Setting up Uptane repositories
+## A. Setting up Uptane repositories
 
 This section outlines recommended procedures for the one-time operations that an OEM and its suppliers SHOULD perform when they set up Uptane for the first time. In particular, they SHOULD correctly configure the Director and Image repositories, and, if used, the Time Server, so that the impact of a repository/server compromise is as limited as possible.
 
@@ -269,7 +269,7 @@ To facilitate coordination between implementations, an Uptane adopter can choose
 
 Information on writing a POUF can be found on the [POUF Purpose and Guidelines](https://uptane.github.io/pouf.html) page of the Uptane website. A sample POUF, written for the [Uptane Reference Implementation](https://uptane.github.io/reference_pouf.html), offers sample metadata written in [ASN.1/DER](https://github.com/uptane/uptane.github.io/blob/master/reference_pouf.md#file-formats).
 
-# B. Preparing an ECU for Uptane
+## B. Preparing an ECU for Uptane
 
 At the highest level, the basic requirement for an ECU to be capable of supporting Uptane is that it must be able to perform either full or partial verification, and access a secure source of time. (See the [Uptane Standard](https://uptane.github.io/uptane-standard/uptane-standard.html#build-time-prerequisite-requirements-for-ecus) for official requirements.)
 
@@ -318,7 +318,7 @@ Unencrypted images should be loaded onto the symmetric key server by some out-of
 
 The Director repository may encrypt images if required (see [Section 5.3.2](https://uptane.github.io/papers/ieee-isto-6100.1.0.0.uptane-standard.html#director_repository) of the Uptane Standard). However, no Uptane implementation should support interactive requests from an ECU for encryption. Allowing the Target ECU to explicitly request an encrypted image at download time would not only increase the attack surface, but could also be used to turn off encryption. This would make it easy for attackers to reverse engineer unencrypted firmware and steal intellectual property. Only the OEM and its suppliers should determine policy on encrypting particular binaries, and this policy should be configured for use by the Director repository, rather than being toggled by the Target ECU.
 
-# C. Guidelines for routine maintenance operations
+## C. Guidelines for routine maintenance operations
 
 In this section, we discuss how to perform regular maintenance operations. Since these operations are carried out on a regular basis, it is important to ensure they are performed in a systematic manner so that software updates are delivered securely to ECUs.
 
@@ -360,7 +360,7 @@ First, an automated process SHOULD store every file on the Image repository, as 
 
 Second, the automated process SHOULD remove expired metadata from the Image repository to reclaim storage space. If the OEM is interested in supporting delta updates for vehicles that have not been updated for a long time, then the automated process SHOULD NOT remove images associated with expired metadata, because these images MAY be needed in order to compute delta images. (See the Delta update strategies subsection of the [Customizing Uptane](https://uptane.github.io/deployment-considerations/customizations.html#delta-update-strategies) section of this document).
 
-# D. Managing signing keys and metadata expiration
+## D. Managing signing keys and metadata expiration
 
 This section addresses both setup and maintenance issues for the signing keys used by Uptane. These include understanding the function of online vs. offline keys, the use of signing thresholds to improve security, and the management of metadata expiration dates.
 
@@ -464,7 +464,7 @@ If ECU keys are compromised, then the OEM SHOULD manually update vehicles to rep
 
 An OEM MAY use the Director repository and its inventory database to infer whether ECU keys have been compromised. This database is used to record vehicle version manifests that list what images an ECU has installed over time. Therefore, an OEM MAY check for any abnormal patterns of installation that could have been caused by an ECU key compromise. Note, however, that this method is not perfect, because if attackers control ECU keys, then they can also use these keys to send fraudulent ECU version reports.
 
-# E. Recommendations for secure customized Uptane implementations
+## E. Recommendations for secure customized Uptane implementations
 
 In this section, we discuss how OEMs and suppliers may customize Uptane to meet special requirements.
 
@@ -619,7 +619,7 @@ Such a system would require a way to reference location for all applicable targe
 
 It is possible that the vehicle’s position may have changed by the time the vehicle receives a location-based update. The device MAY check that its current position matches that of the target before installation, and the implementer MAY decide to abort the update if the location no longer matches.
 
-# F. Performing exceptional operations
+## F. Performing exceptional operations
 
 In this section, we discuss operations that are generally performed only in exceptional cases. As performing these operations may have security implications for software updates, they should be carried out with great care.
 
@@ -686,7 +686,7 @@ Tier-1 suppliers are free to manage delegations to members within its own organi
 
 See [Key Management](key_management.html).
 
-# G. Enhanced security practices
+## G. Enhanced security practices
 
 Uptane is a flexible system and therefore can be adapted for increased security if an OEM or supplier deems it necessary. In this section, we discuss several of these techniques.
 

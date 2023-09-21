@@ -4,6 +4,18 @@ import LinkCard from './community_links';
 import Link from '@docusaurus/Link';
 
 export default function Community() {
+    const icsFilePath =  'pathname:///assets/meeting/invite.ics';
+
+    const handleAddToCalendarClick = () => {
+        // Create an anchor element to trigger the download
+        const a = document.createElement('a');
+        a.href = icsFilePath;
+        a.download = 'uptane_meeting.ics'; // Set the desired filename
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+    };
+
     return (
         <div className={[styles.community, styles.section_padding].join(' ')}>
             <div className={styles.join_community}>
@@ -22,7 +34,7 @@ export default function Community() {
                         <h4>Biweekly Friday of every month | 5:30 PM EDT</h4>
                     </div>
                     <div className={styles.calendar_link}>
-                        <Link class="button button--secondary button--lg" target='_blank' href="#">Add to Calendar</Link>
+                        <Link class="button button--secondary button--lg" onClick={handleAddToCalendarClick}>Add to Calendar</Link>
                     </div>
                 </div>
             </div>

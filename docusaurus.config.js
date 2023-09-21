@@ -49,13 +49,13 @@ const config = {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            '#',
           lastVersion: "current",
           versions: {
             current: {
               label: 'Latest (2.1.0)',
+            },
+            "2.1.0": {
+              label: "2.1.0",
             },
             "2.0.0": {
               label: "2.0.0",
@@ -114,14 +114,14 @@ const config = {
         items: [
 
           {
-            to: '/docs/LearnMore/About', label: 'About Us', position: 'left',
+            to: '/docs/learn-more/about', label: 'About Us', position: 'left',
           },
           {
-            to: '/docs/Standard/UptaneStandard', label: 'Standard', position: 'left',
+            to: '/docs/standard/uptane-standard', label: 'Standard', position: 'left',
           },
           {
             label: 'Best Practices',
-            to: '/docs/Deployment/BestPractices',
+            to: '/docs/deployment/best-practices',
             position: 'left'
           },
           {
@@ -131,15 +131,15 @@ const config = {
             items: [
               {
                 label: 'POUF',
-                to: 'docs/Enhancements/POUF/PoufMain',
+                to: 'docs/enhancements/pouf/pouf-main',
               },
               {
                 label: 'PUREs',
-                to: 'docs/Enhancements/PUREs/pure1',
+                to: 'docs/enhancements/pures/pure1',
               },
             ],
           },
-          { to: '/docs/LearnMore/gettingStarted', label: 'Learn More', position: 'left' },
+          { to: '/docs/learn-more/getting-started', label: 'Learn More', position: 'left' },
           { to: '/blog', label: 'Blog', position: 'left' },
           {
             to: 'https://github.com/uptane/uptane.github.io',
@@ -154,7 +154,7 @@ const config = {
             dropdownActiveClassDisabled: true,
             dropdownItemsAfter: [
               {
-                to: "/docs/allVersions",
+                to: "/docs/all-versions",
                 label: "All versions",
               },
             ],
