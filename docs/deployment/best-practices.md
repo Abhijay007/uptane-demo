@@ -510,7 +510,7 @@ Tier-1 suppliers are free to manage delegations to members within its own organi
 
 ## 6.4 Key compromise
 
-See [Key Management](key_management.html).
+See [Key Management](https://uptane.github.io/deployment-considerations/key_management.html).
 
 ## 7 Customizing Uptane
 

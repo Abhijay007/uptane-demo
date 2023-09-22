@@ -7,12 +7,12 @@
 /* You can override the default Infima variables here. */
 @font-face {
   font-family: 'Nunito';
-  src: url('/fonts/Nunito-VariableFont_wght.ttf');
+  src: url('../../static/fonts/Nunito-VariableFont_wght.ttf'); 
 }
 
 @font-face {
   font-family: 'OpenSans';
-  src: url('/fonts/OpenSans-VariableFont_wdth,wght.ttf');
+  src: url('../../static/fonts/OpenSans-VariableFont_wdth,wght.ttf');
 }
 
 :root {

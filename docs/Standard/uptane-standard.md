@@ -5,8 +5,6 @@ title: Uptane Standard 2.1.0
 
 # Uptane Standard for Design and Implementation 2.1.0
 
-uptane-standard-design
-
 ## Abstract
 
 This document describes a framework for securing ground vehicle software update systems.
@@ -33,7 +31,7 @@ Note that, following the recommendations of [\[RFC2119\]](#RFC2119), imperatives
 
 ## 2.2. Uptane role terminology
 
-These terms are defined in greater detail in [Section 5.1](#roles).
+These terms are defined in greater detail in [Section 5.1](#51-roles-on-repositories).
 
 _Delegation_: A process by which the responsibility of signing metadata about images is assigned to another party.
 
@@ -150,7 +148,7 @@ The design requirements for this document are governed by the following principa
 
 ## 4. Threat model and attack strategies
 
-The overarching goal of Uptane is to provide a system that is resilient in the face of various types of compromise. In this section, we describe the goals an attacker could have ([Section 4.1](#attacker_goals)) and the capabilities they could have or could develop ([Section 4.2](#capabilities)). We then describe and classify types of attacks on the system according to the attacker’s goals ([Section 4.3](#threats)).
+The overarching goal of Uptane is to provide a system that is resilient in the face of various types of compromise. In this section, we describe the goals an attacker could have ([Section 4.1](#41-attacker-goals)) and the capabilities they could have or could develop ([Section 4.2](#42-attacker-capabilities)). We then describe and classify types of attacks on the system according to the attacker’s goals ([Section 4.3](#43-description-of-threats)).
 
 ## 4.1. Attacker goals
 
@@ -173,7 +171,7 @@ Uptane is designed with resilience to compromise in mind. We assume that attacke
 
 ## 4.3. Description of threats
 
-Uptane’s threat model includes the following types of attacks, organized according to the attacker goals listed in [Section 4.1](#attacker_goals).
+Uptane’s threat model includes the following types of attacks, organized according to the attacker goals listed in [Section 4.1](#41-attacker-goals).
 
 ## 4.3.1. Read updates
 
@@ -225,19 +223,19 @@ At a high level, Uptane requires:
 
 ## 5.1. Roles on repositories
 
-A repository contains images and metadata. Each role has a particular type of metadata associated with it, as described in [Section 5.2](#meta_structures).
+A repository contains images and metadata. Each role has a particular type of metadata associated with it, as described in [Section 5.2](#52-metadata-structures).
 
 ## 5.1.1. The Root role
 
-A repository’s Root role SHALL produce and sign Root metadata as described in [Section 5.2.2](#root_meta).
+A repository’s Root role SHALL produce and sign Root metadata as described in [Section 5.2.2](#522-root-metadata).
 
 ## 5.1.2. The Targets role
 
-A repository’s Targets role SHALL produce and sign metadata about images and delegations as described in [Section 5.2.3](#targets_meta).
+A repository’s Targets role SHALL produce and sign metadata about images and delegations as described in [Section 5.2.3](#523-targets-metadata).
 
 ## 5.1.2.1. Delegations
 
-The Targets role on the Image repository can delegate the responsibility of signing metadata to other, custom-defined roles referred to as delegated targets. If it does, it SHALL do so as specified in [Section 5.2.3.2](#delegations_meta).
+The Targets role on the Image repository can delegate the responsibility of signing metadata to other, custom-defined roles referred to as delegated targets. If it does, it SHALL do so as specified in [Section 5.2.3.2](#5232-metadata-about-delegations).
 
 As responsibility for signing images or a subset of images could be delegated to more than one role, it is possible that two different roles will be trusted to sign a particular image. For this reason, delegations SHALL be prioritized.
 
@@ -249,7 +247,7 @@ Delegations only apply to the Image repository. The Targets role on the Director
 
 ## 5.1.3. The Snapshot role
 
-A repository’s Snapshot role SHALL produce and sign metadata about all Targets metadata the repository releases, including the current version number of the top-level Targets metadata, and the version numbers of all delegated Targets metadata, as described in [Section 5.2.4](#snapshot_meta).
+A repository’s Snapshot role SHALL produce and sign metadata about all Targets metadata the repository releases, including the current version number of the top-level Targets metadata, and the version numbers of all delegated Targets metadata, as described in [Section 5.2.4](#524-snapshot-metadata).
 
 ## 5.1.4. The Timestamp role
 
@@ -300,7 +298,7 @@ A repository’s Root metadata distributes the public keys of the top-level Root
 
 The Targets metadata on a repository contains all of the information about images to be installed on ECUs. This includes filenames, hashes, and file sizes. It can also include other useful information, such as what types of hardware are compatible with a particular image.
 
-Targets metadata can also contain metadata about delegations, allowing one Targets role to delegate its authority to another. This means that an individual Targets metadata file might contain only metadata about delegations, only metadata about images, or some combination of the two. The details of how ECUs traverse the delegation tree to find valid metadata about images is specified in [Section 5.4.4.7](#resolve_delegations).
+Targets metadata can also contain metadata about delegations, allowing one Targets role to delegate its authority to another. This means that an individual Targets metadata file might contain only metadata about delegations, only metadata about images, or some combination of the two. The details of how ECUs traverse the delegation tree to find valid metadata about images is specified in [Section 5.4.4.7](#5447-how-to-resolve-delegations).
 
 ## 5.2.3.1. Metadata about images
 
@@ -344,7 +342,7 @@ Any metadata file with delegations SHALL provide the following information:
 - A list of delegations, each of which contains:
   - A list of the filenames to which this role applies. This could be expressed using wildcards, or by enumerating a list, or a combination of the two.
   - An optional list of the hardware identifiers to which this role applies. If this is omitted, any hardware identifier will match.
-  - An indicator of whether or not this is a terminating delegation. (See [Section 5.1.2.1](#targets_role_delegations).)
+  - An indicator of whether or not this is a terminating delegation. (See [Section 5.1.2.1](#5121-delegations).)
   - A list of the roles to which this delegation applies. Each role needs to specify:
     - A name for the role (e.g., “supplier1-qa”)
     - The key identifiers for each key this role uses
@@ -371,7 +369,7 @@ The Timestamp metadata SHALL contain the following information:
 
 ## 5.2.6. Repository mapping metadata
 
-As described in the introduction to [Section 5](#design), Uptane requires a Director repository and an Image repository. However, it is possible to have an Uptane-conformant implementation that has more than two repositories.
+As described in the introduction to [Section 5](#5-detailed-design-of-uptane), Uptane requires a Director repository and an Image repository. However, it is possible to have an Uptane-conformant implementation that has more than two repositories.
 
 Repository mapping metadata informs a Primary ECU about which repositories to trust for images or image paths. [\[TAP-4\]](#TAP-4) describes how to make use of more complex repository mapping metadata in order to have more than the two required repositories.
 
@@ -398,8 +396,8 @@ There is a difference between the filename in a metadata file or an ECU, and the
 
 Unless stated otherwise, all files SHALL be written to repositories in accordance with the following two rules:
 
-1.  Metadata filenames SHALL be qualified with version numbers. If a metadata file A is specified as FILENAME.EXT in another metadata file B, then it SHALL be written as VERSION.FILENAME.EXT, where VERSION is A’s version number, as defined in [Section 5.2.1](#common_metadata), with one exception: If the version number of the Timestamp metadata file is not be known in advance by a client, it could be read from, and written to, a repository using a filename without a version number qualification, i.e., FILENAME.EXT.
-2.  If an image is specified in a Targets metadata file as FILENAME.EXT, it SHALL be written to the repository as HASH.FILENAME.EXT, where HASH is one of the hash digests of the file, as specified in [Section 5.2.3.1](#targets_images_meta). The file SHALL be written to the repository using _n_ different filenames, one for each hash digest listed in its corresponding Targets metadata.
+1.  Metadata filenames SHALL be qualified with version numbers. If a metadata file A is specified as FILENAME.EXT in another metadata file B, then it SHALL be written as VERSION.FILENAME.EXT, where VERSION is A’s version number, as defined in [Section 5.2.1](#521-common-metadata-structures), with one exception: If the version number of the Timestamp metadata file is not be known in advance by a client, it could be read from, and written to, a repository using a filename without a version number qualification, i.e., FILENAME.EXT.
+2.  If an image is specified in a Targets metadata file as FILENAME.EXT, it SHALL be written to the repository as HASH.FILENAME.EXT, where HASH is one of the hash digests of the file, as specified in [Section 5.2.3.1](#5231-metadata-about-images). The file SHALL be written to the repository using _n_ different filenames, one for each hash digest listed in its corresponding Targets metadata.
 3.  Filenames of images SHOULD be encoded to prevent a path traversal on the client system, either by using URL encoding or by limiting the allowed character set in the filename.
 
 For example:
@@ -424,7 +422,7 @@ The Image repository SHALL expose an interface permitting the download of metada
 
 The Image repository SHALL require authorization for writing metadata and images.
 
-The Image repository SHALL provide a method for authorized users to upload images and their associated metadata. It SHALL check that a user writing metadata and images is authorized to do so for that specific image by checking the chain of delegations as described in [Section 5.2.3.2](#delegations_meta).
+The Image repository SHALL provide a method for authorized users to upload images and their associated metadata. It SHALL check that a user writing metadata and images is authorized to do so for that specific image by checking the chain of delegations as described in [Section 5.2.3.2](#5232-metadata-about-delegations).
 
 The Image repository SHALL implement storage that permits authorized users to write an image file using a unique filename, and later read the same file using the same name. It could use any filesystem, key-value store, or database that fulfills this requirement.
 
@@ -434,7 +432,7 @@ The Image repository could require authentication for read access.
 
 The Director repository instructs ECUs as to which images will be installed by producing signed metadata on demand. Unlike the Image repository, it is mostly controlled by automated, online processes. It also consults a private inventory database containing information on vehicles, ECUs, and software revisions.
 
-The Director repository SHALL expose an interface for Primaries to upload vehicle version manifests ([Section 5.4.2.1.1](#vehicle_version_manifest)) and download metadata. This interface SHOULD be public.
+The Director repository SHALL expose an interface for Primaries to upload vehicle version manifests ([Section 5.4.2.1.1](#54211-vehicle-version-manifest)) and download metadata. This interface SHOULD be public.
 
 The Director could encrypt images for ECUs that require them, either by encrypting on-the-fly or by storing encrypted images on the repository.
 
@@ -444,7 +442,7 @@ The Director repository SHALL implement storage that permits an automated servic
 
 A Director repository SHALL conform to the following six-step process for directing the installation of software images on a vehicle.
 
-1.  The Director SHOULD first identify the vehicle. This could be done when the Director receives a vehicle version manifest sent by a Primary (as described in [Section 5.4.2.1](#construct_manifest_primary)), decodes the manifest, and determines the unique vehicle identifier. Additionally, the Director could utilize other mechanisms to uniquely identify a vehicle (e.g., 2-way TLS with unique client certificates).
+1.  The Director SHOULD first identify the vehicle. This could be done when the Director receives a vehicle version manifest sent by a Primary (as described in [Section 5.4.2.1](#5421-construct-and-send-vehicle-version-manifest)), decodes the manifest, and determines the unique vehicle identifier. Additionally, the Director could utilize other mechanisms to uniquely identify a vehicle (e.g., 2-way TLS with unique client certificates).
 2.  Using the vehicle identifier, the Director queries its inventory database (as described in [Section 5.3.2.2](#inventory_db)) for relevant information about each ECU in the vehicle.
 3.  The Director SHALL check the manifest for accuracy compared to the information in the inventory database. If any of the required checks fail, the Director SHOULD drop the request. An implementer can make additional checks if desired. At a minimum, the Director SHOULD check the following:
     - Each ECU recorded in the inventory database is also represented in the manifest.

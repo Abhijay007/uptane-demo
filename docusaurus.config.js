@@ -54,9 +54,6 @@ const config = {
             current: {
               label: 'Latest (2.1.0)',
             },
-            "2.1.0": {
-              label: "2.1.0",
-            },
             "2.0.0": {
               label: "2.0.0",
             },
@@ -75,8 +72,6 @@ const config = {
           showReadingTime: true,
           path: 'blog', // The directory containing your blog posts
           routeBasePath: 'blog', // The base path for the blog pages
-          editUrl:
-            '#',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -89,14 +84,6 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      announcementBar: {
-        id: 'announcement_bar',
-        content:
-          `Dont Forget to Register for Upcoming Uptane workshop`,
-        backgroundColor: 'var(--theme-card)',
-        textColor: 'black',
-        isCloseable: true,
-      },
       tableOfContents: {
         minHeadingLevel: 2,
         maxHeadingLevel: 5,
