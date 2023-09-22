@@ -828,4 +828,4 @@ O'Donnell, B., "[Your average car is a lot more code-driven than you think](http
 
 ## Author's Address
 
-Uptane Community Members of the Uptane Community Joint Development Foundation Projects, LLC, Uptane Series (c/o Prof. Justin Cappos) 6 MetroTech Brooklyn, NY 11201 USA EMail: [\[email protected\]](/cdn-cgi/l/email-protection#265356524748430b55524748424754425566414949414a434154495356550845494b)
+Uptane Community Members of the Uptane Community Joint Development Foundation Projects, LLC, Uptane Series (c/o Prof. Justin Cappos) 6 MetroTech Brooklyn, NY 11201 USA Email: [uptane-standards@googlegroups.com](mailto:uptane-standards@googlegroups.com)
