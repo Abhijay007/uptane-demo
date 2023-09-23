@@ -277,9 +277,9 @@ A repository’s Timestamp role SHALL produce and sign metadata indicating wheth
 
 Uptane’s security guarantees all rely on properly created metadata that follows a designated structure. The Uptane Standard **does not** mandate any particular format or encoding for the metadata as a whole. ASN.1 (with any encoding scheme like BER, DER, XER, etc.), JSON, XML, or any other encoding format that is capable of providing the required structure MAY be used.
 
-However, string comparison is required as part of metadata verification. To ensure an accurate basis for comparing strings, all strings MUST be encoded in the Unicode Format for Network Interchange as defined in [\[RFC5198\]](#RFC5198), including normalization into Unicode Normalization Form C ([\[NFC\]](#NFC)).
+However, string comparison is required as part of metadata verification. To ensure an accurate basis for comparing strings, all strings MUST be encoded in the Unicode Format for Network Interchange as defined in [\[RFC5198\]](#rfc5198), including normalization into Unicode Normalization Form C ([\[NFC\]](#NFC)).
 
-In the _Deployment Best Practices_ ([\[DEPLOY\]](#DEPLOY)), Joint Development Foundation Projects, LLC, Uptane Series provides some examples of compliant metadata structures in ASN.1 and JSON.
+In the _Deployment Best Practices_ ([\[DEPLOY\]](#deploy)), Joint Development Foundation Projects, LLC, Uptane Series provides some examples of compliant metadata structures in ASN.1 and JSON.
 
 ## 5.2.1. Common metadata structures
 
@@ -318,7 +318,7 @@ A repository’s Root metadata distributes the public keys of the top-level Root
 
 The Targets metadata on a repository contains all of the information about images to be installed on ECUs. This includes filenames, hashes, file sizes, and MAY also include other useful information, such as what types of hardware are compatible with a particular image.
 
-Targets metadata can also contain metadata about delegations, allowing one Targets role to delegate its authority to another. This means that an individual Targets metadata file might contain only metadata about delegations, only metadata about images, or some combination of the two. The details of how ECUs traverse the delegation tree to find valid metadata about images is specified in [Section 5.4.4.7](#resolve_delegations).
+Targets metadata can also contain metadata about delegations, allowing one Targets role to delegate its authority to another. This means that an individual Targets metadata file might contain only metadata about delegations, only metadata about images, or some combination of the two. The details of how ECUs traverse the delegation tree to find valid metadata about images is specified in [Section 5.4.4.7](#5447-how-to-resolve-delegations).
 
 ## 5.2.3.1. Metadata about images
 
@@ -701,7 +701,7 @@ In order to perform full verification, an ECU SHALL perform the following steps:
 8.  Check the previously downloaded Snapshot metadata file from the Image repository (if available). If the hashes and version number of that file match the hashes and version number listed in the new Timestamp metadata, the ECU MAY skip to the last step. Otherwise, download and check the Snapshot metadata file from the Image repository, following the procedure in [Section 5.4.4.5](#check_snapshot).
 9.  Download and check the top-level Targets metadata file from the Image repository, following the procedure in [Section 5.4.4.6](#check_targets).
 10. Verify that Targets metadata from the Director and Image repositories match. A Primary ECU MUST perform this check on metadata for all images listed in the Targets metadata file from the Director repository downloaded in step 6. A Secondary ECU MAY elect to perform this check only on the metadata for the image it will install. (That is, the image metadata from the Director that contains the ECU identifier of the current ECU.) To check that the metadata for an image matches, complete the following procedure:
-11. Locate and download a Targets metadata file from the Image repository that contains an image with exactly the same filename listed in the Director metadata, following the procedure in [Section 5.4.4.7](#resolve_delegations).
+11. Locate and download a Targets metadata file from the Image repository that contains an image with exactly the same filename listed in the Director metadata, following the procedure in [Section 5.4.4.7](#5447-how-to-resolve-delegations).
 12. Check that the Targets metadata from the Image repository matches the Targets metadata from the Director repository:
     1.  Check that the non-custom metadata (i.e., length and hashes) of the unencrypted or encrypted image are the same in both sets of metadata. Note: the Primary is responsible for validating encrypted images and associated metadata. The target ECU (Primary or Secondary) is responsible for validating the unencrypted image and associated metadata.
     2.  Check that all MUST match custom metadata (e.g., hardware identifier and release counter) are the same in both sets of metadata.
@@ -777,7 +777,7 @@ To properly check Targets metadata for an image, an ECU MUST locate the metadata
 
 It is possible to delegate signing authority to multiple delegated roles as described in [\[TAP-3\]](#TAP-3). Each multi-role delegation effectively contains a list of ordinary delegations, plus a threshold of those roles that must be in agreement about the non-custom metadata for the image. All multi-role delegations MUST be resolved using the following procedure. Note that there may be sub-delegations inside multi-role delegations.
 
-1.  For each of the roles in the delegation, find and load the image metadata following the procedure in [Section 5.4.4.7](#resolve_delegations).
+1.  For each of the roles in the delegation, find and load the image metadata following the procedure in [Section 5.4.4.7](#5447-how-to-resolve-delegations).
 2.  Inspect the non-custom part of the metadata loaded in step 1:
     1.  Locate all sets of roles that have agreeing (i.e., identical) non-custom metadata and “MUST match” custom metadata. Discard any set of roles with a size smaller than the threshold of roles that must be in agreement for this delegation.
     2.  Check for a conflict. A conflict exists if there is more than one agreeing set of roles, yet each set has different metadata. If a conflict is found, choose and return the metadata from the set of roles which includes the earliest role in the multi-delegation list.

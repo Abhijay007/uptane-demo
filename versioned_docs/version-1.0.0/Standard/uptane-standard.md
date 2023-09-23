@@ -279,7 +279,7 @@ A repository’s Timestamp role SHALL produce and sign metadata indicating wheth
 
 Uptane’s security guarantees all rely on properly created metadata that follows a designated structure. The Uptane standard **does not** mandate any particular format or encoding for the metadata as a whole. ASN.1 (with any encoding scheme like BER, DER, XER, etc.), JSON, XML, or any other encoding format that is capable of providing the required structure MAY be used.
 
-However, string comparison is required as part of metadata verification. To ensure an accurate basis for comparing strings, all strings MUST be encoded in the Unicode Format for Network Interchange as defined in [\[RFC5198\]](#RFC5198), including normalization into Unicode Normalization Form C ([\[NFC\]](#NFC)).
+However, string comparison is required as part of metadata verification. To ensure an accurate basis for comparing strings, all strings MUST be encoded in the Unicode Format for Network Interchange as defined in [\[RFC5198\]](#rfc5198), including normalization into Unicode Normalization Form C ([\[NFC\]](#NFC)).
 
 In the Deployment Considerations document, the Uptane Alliance provides some examples of compliant metadata structures in ASN.1 and JSON.
 
@@ -322,7 +322,7 @@ Additionally, it MAY contain a mapping of roles to a list of valid URLs from whi
 
 The Targets metadata on a repository contains all of the information about images to be installed on ECUs. This includes filenames, hashes, file sizes, and MAY also include other useful information about images, such as what types of hardware are compatible with a particular image.
 
-Targets metadata can also contain metadata about delegations, allowing one Targets role to delegate its authority to another. This means that an individual Targets metadata file might contain only metadata about delegations, only metadata about images, or some combination of the two. The details of how ECUs traverse the delegation tree to find valid metadata about images is specified in [Section 5.4.4.7](#resolve_delegations).
+Targets metadata can also contain metadata about delegations, allowing one Targets role to delegate its authority to another. This means that an individual Targets metadata file might contain only metadata about delegations, only metadata about images, or some combination of the two. The details of how ECUs traverse the delegation tree to find valid metadata about images is specified in [Section 5.4.4.7](#5447-how-to-resolve-delegations).
 
 ## 5.2.3.1. Metadata about images
 
@@ -410,7 +410,7 @@ For example, in the most basic Uptane case, the repository mapping metadata woul
 
 Note that the metadata need not be in the form of a metadata file. For example, in the basic case where there is only one Director and one Image repository, and all images need to have signed metadata from both repositories, it would be sufficient to have a configuration file with URLs for the two repositories, and a client that always checks for metadata matches between them. In this case, no explicit mapping would be defined, because the mapping is defined as part of the Uptane client implementation.
 
-The _Deployment Considerations_ document ([\[DEPLOY\]](#DEPLOY)) gives more guidance on how to implement repository mapping metadata for more complex use cases. It also discusses strategies for updating repository mapping metadata, if required.
+The _Deployment Considerations_ document ([\[DEPLOY\]](#deploy)) gives more guidance on how to implement repository mapping metadata for more complex use cases. It also discusses strategies for updating repository mapping metadata, if required.
 
 ## 5.2.7. Rules for filenames in repositories and metadata
 
@@ -494,15 +494,15 @@ An Uptane-compliant ECU SHALL be able to download and verify Image metadata and 
 
 Each ECU in a vehicle receiving over-the-air updates is either a Primary or a Secondary ECU. A Primary ECU collects and delivers vehicle manifests to the Director ([Section 5.4.2.1.1](#vehicle_version_manifest)) that contain information about which images have been installed on ECUs in the vehicle. It also verifies the time and downloads and verifies the latest metadata and images for itself and for its secondaries. A Secondary ECU verifies the time, and downloads and verifies the latest metadata and images for itself from its associated Primary ECU. It also sends signed information about its installed images to its associated Primary.
 
-All ECUs MUST verify image metadata as specified in [Section 5.4.4](#metadata_verification) before installing an image or making it available to other ECUs. A Primary ECU MUST perform full verification ([Section 5.4.4.2](#full_verification)). A Secondary ECU SHOULD perform full verification if possible. If a Secondary cannot perform full verification, it SHALL perform partial verification. See [Uptane Deployment Considerations](#DEPLOY) for a discussion of how to choose between partial and full verification.
+All ECUs MUST verify image metadata as specified in [Section 5.4.4](#metadata_verification) before installing an image or making it available to other ECUs. A Primary ECU MUST perform full verification ([Section 5.4.4.2](#full_verification)). A Secondary ECU SHOULD perform full verification if possible. If a Secondary cannot perform full verification, it SHALL perform partial verification. See [Uptane Deployment Considerations](#deploy) for a discussion of how to choose between partial and full verification.
 
-ECUs MUST have a secure source of time. An OEM/Uptane implementor MAY use any external source of time that is demonstrably secure. The Uptane deployment considerations ([\[DEPLOY\]](#DEPLOY)) describe one way to implement an external time server to cryptographically attest time, as well as the security properties required. When “loading time” is referenced in procedures in this standard, it should be understood to mean loading into memory the current time (if the ECU has its own secure clock), or the most recent attested time.
+ECUs MUST have a secure source of time. An OEM/Uptane implementor MAY use any external source of time that is demonstrably secure. The Uptane deployment considerations ([\[DEPLOY\]](#deploy)) describe one way to implement an external time server to cryptographically attest time, as well as the security properties required. When “loading time” is referenced in procedures in this standard, it should be understood to mean loading into memory the current time (if the ECU has its own secure clock), or the most recent attested time.
 
 ## 5.4.1. Build-time prerequisite requirements for ECUs
 
 For an ECU to be capable of receiving Uptane-secured updates, it MUST have the following data provisioned at the time it is manufactured or installed in the vehicle:
 
-1.  A sufficiently recent copy of required Uptane metadata at the time of manufacture or install. See [Uptane Deployment Considerations](#DEPLOY) for more information.
+1.  A sufficiently recent copy of required Uptane metadata at the time of manufacture or install. See [Uptane Deployment Considerations](#deploy) for more information.
     - Partial verification ECUs MUST have the Root and Targets metadata from the Director repository.
     - Full verification ECUs MUST have a complete set of metadata (Root, Targets, Snapshot, and Timestamp) from both repositories, as well as the repository mapping metadata ([Section 5.2.6](#repo_mapping_meta)).
 2.  The current time, or a secure attestation of a sufficiently recent time.
@@ -647,7 +647,7 @@ The ECU SHALL verify that the latest image matches the latest metadata as follow
 
 If the ECU has secondary storage, the checks SHOULD be performed on the image in secondary storage before it is installed.
 
-NOTE: See [\[DEPLOY\]](#DEPLOY) for guidance on how to deal with Secondary ECU failures for ECUs that do not have secondary storage.
+NOTE: See [\[DEPLOY\]](#deploy) for guidance on how to deal with Secondary ECU failures for ECUs that do not have secondary storage.
 
 If any step fails, the ECU SHALL jump to the ([Section 5.4.3.6](#create_version_report)) step.
 
@@ -680,7 +680,7 @@ Full verification MAY be performed by either Primary or Secondary ECUs. In the f
 
 If [\[TAP-5\]](#TAP-5) is supported and a Primary has an external connection to the Uptane repositories, a Primary ECU SHALL download metadata and images following the rules specified in that TAP. If [\[TAP-5\]](#TAP-5) is not supported, or if the Primary does not have an external connection to the Uptane repositories, the download SHOULD follow the [\[TUF-spec\]](#TUF-spec) and the metadata file renaming rules specified in [Section 5.2.7](#metadata_filename_rules).
 
-Before starting full verification, the repository mapping metadata MUST be consulted to determine where to download metadata from. This procedure assumes the basic Uptane case: there are only two repositories (Director and Image), and all image paths are required to be signed by both repositories. If a more complex repository layout is being used, refer to [\[DEPLOY\]](#DEPLOY) for guidance on how to determine where metadata should be downloaded from.
+Before starting full verification, the repository mapping metadata MUST be consulted to determine where to download metadata from. This procedure assumes the basic Uptane case: there are only two repositories (Director and Image), and all image paths are required to be signed by both repositories. If a more complex repository layout is being used, refer to [\[DEPLOY\]](#deploy) for guidance on how to determine where metadata should be downloaded from.
 
 In order to perform full verification, an ECU SHALL perform the following steps:
 
@@ -695,7 +695,7 @@ In order to perform full verification, an ECU SHALL perform the following steps:
 9.  Download and check the top-level Targets metadata file from the Image repository, following the procedure in [Section 5.4.4.6](#check_targets).
 
 10. Verify that Targets metadata from the Director and Image repositories match. A Primary ECU MUST perform this check on metadata for all images listed in the Targets metadata file from the Director repository downloaded in step 6. A Secondary ECU MAY elect to perform this check only on the metadata for the image it will install. (That is, the target metadata from the Director that contains the ECU identifier of the current ECU.) To check that the metadata for an image matches, complete the following procedure:
-11. Locate and download a Targets metadata file from the Image repository that contains an image with exactly the same file name listed in the Director metadata, following the procedure in [Section 5.4.4.7](#resolve_delegations).
+11. Locate and download a Targets metadata file from the Image repository that contains an image with exactly the same file name listed in the Director metadata, following the procedure in [Section 5.4.4.7](#5447-how-to-resolve-delegations).
 12. Check that the Targets metadata from the Image repository matches the Targets metadata from the Director repository:
     1.  Check that the non-custom metadata (i.e., length and hashes) of the unencrypted or encrypted image are the same in both sets of metadata. Note: the Primary is responsible for validating encrypted images and associated metadata. The target ECU (Primary or Secondary) is responsible for validating the unencrypted image and associated metadata.
     2.  Check that all “MUST match” custom metadata (e.g., hardware identifier and release counter) are the same in both sets of metadata.
@@ -772,7 +772,7 @@ To properly check Targets metadata for an image, an ECU MUST locate the metadata
 
 It is possible to delegate signing authority to multiple delegated roles as described in [\[TAP-3\]](#TAP-3). Each multi-role delegation effectively contains a list of ordinary delegations, plus a threshold of those roles that must be in agreement about the non-custom metadata for the image. All multi-role delegations MUST be resolved using the following procedure. Note that there may be sub-delegations inside multi-role delegations.
 
-1.  For each of the roles in the delegation, find and load the image metadata (or error) following the procedure in [Section 5.4.4.7](#resolve_delegations).
+1.  For each of the roles in the delegation, find and load the image metadata (or error) following the procedure in [Section 5.4.4.7](#5447-how-to-resolve-delegations).
 2.  Inspect the non-custom part of the metadata loaded in step 1:
     1.  Locate all sets of roles which have agreeing (i.e. identical) non-custom metadata and “MUST match” custom metadata. Discard any set of roles with a size smaller than the threshold of roles that must be in agreement for this delegation.
     2.  Check for a conflict. A conflict exists if there remains more than one agreeing set of roles, each set having different metadata. If a conflict is found, choose and return the metadata from the set of roles which includes the earliest role in the multi-delegation list.

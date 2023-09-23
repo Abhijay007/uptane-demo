@@ -4,8 +4,7 @@ import LinkCard from './community_links';
 import Link from '@docusaurus/Link';
 
 export default function Community() {
-    const icsFilePath =  'pathname:///assets/meeting/invite.ics';
-
+    const icsFilePath = 'assets/meeting/invite.ics';
     const handleAddToCalendarClick = () => {
         // Create an anchor element to trigger the download
         const a = document.createElement('a');
